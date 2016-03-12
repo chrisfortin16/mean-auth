@@ -1,15 +1,18 @@
-<h1>Yo!</h1>
-<h2>This is the homepage</h2>
 <nav>
   <ul>
     <li><a href="/" title="link to home page">Homepage</a></li>
     <li><a href="/history" title="link to history page">History</a></li>
     <li><a href="/order" title="link to order page">Order</a></li>
     <li><a href="/contact" title="link to contact page">Contact</a></li>
+    <div id="logoutButton" ng-controller="logoutController">
+      <li><a ng-click='logout()' class="btn btn-default">Logout</a></li>
+    </div>
   </ul>
 </nav>
-<div ng-controller="logoutController">
-  <a ng-click='logout()' class="btn btn-default">Logout</a>
+<h1>Yo!</h1>
+<h2>This is the homepage</h2>
+<div id="loginRegister">
+  <h5>Never bought oil from us? Sign up now. <br/> Or login if you've been here already.</h5>
   <a href="/login" title="link to login page" class="btn btn-default">Login</a>
   <a href="/register" title="link to register page" class="btn btn-default">Register</a>
 </div>
