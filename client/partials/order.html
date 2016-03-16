@@ -1,10 +1,73 @@
-<h1>Yo!</h1>
-<h2>This is the order page</h2>
 <nav>
   <ul>
     <li><a href="/" title="link to home page">Homepage</a></li>
     <li><a href="/history" title="link to history page">History</a></li>
     <li><a href="/order" title="link to order page">Order</a></li>
     <li><a href="/contact" title="link to contact page">Contact</a></li>
+    <div id="logoutButton" ng-controller="logoutController">
+      <li><a ng-click='logout()' class="btn btn-default">Logout</a></li>
+    </div>
   </ul>
 </nav>
+<h1>Yo!</h1>
+<h2>Place an order</h2>
+
+<div class="col-md-4">
+  <h2>Order Form</h2>
+  <form class="form" ng-submit="creteOrder()" ng-controller="orderController">
+    <div class="form-group">
+      <h3>Full Name</h3>
+        <input type="String" class="form-control" name="fullname" ng-model="orderForm.fullname" required>
+    </div>
+    <div class="form-group">
+      <h3>Phone</h3>
+        <input type="Number" class="form-control" name="phone" ng-model="orderForm.phone" required>
+    </div>
+    <div class="form-group">
+      <h3>Address</h3>
+      <input type="String" class="form-control" name="address" ng-model="orderForm.address" required>
+    </div>
+    <div class="form-group">
+      <h3>Zip Code</h3>
+      <input type="Number" class="form-control" name="zip" ng-model="orderForm.zip" required>
+    </div>
+    <div class="form-group">
+      <h3>Order Type</h3>
+          <div>
+            <h4>Oil</h4>
+              <input type="radio" name="orderType" value="oil" ng-model="orderForm.orderType">
+            <h4>Coal</h4>
+              <input type="radio" name="orderType" value="coal" ng-model="orderForm.orderType">
+          </div>
+    </div>
+    <div class="form-group">
+      <h3>Need By Date</h3>
+        <input type="date" class="form-control" name="needby" ng-model="orderForm.needby" required>
+    </div>
+    <div class="form-group">
+      <h3>Amount (~Gallons / ~Bags)</h3>
+        <input type="text" class="form-control" name="amount" ng-model="orderForm.amount" required>
+    </div>
+    <div class="form-group">
+      <h3>Payment</h3>
+        <h4>Now</h4>
+          <input type="radio" name="payment" value="now">
+        <h4>Later</h4>
+          <input type="radio" name="payment" value="later">
+    </div>
+    <div class="form-group">
+      <h3>Maintenance</h3>
+        <h4>Yes</h4>
+          <input type="radio" name="maintenance" value="yes">
+        <h4>No</h4>
+          <input type="radio" name="maintenance" value="no">
+    </div>
+    <div class="form-group">
+      <h3>Extra Message</h3>
+        <input type="String" class="form-control" name="message" ng-model="orderForm.message" required>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-default">Submit Order</button>
+    </div>
+  </form>
+</div>

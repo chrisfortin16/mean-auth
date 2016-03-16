@@ -3,10 +3,9 @@ body{
 }
 h1{
   background-image: url('../images/logo_1.png');
-  width: 400px;
-  height: 262px;
+  width: 200px;
+  height: 131px;
   text-indent: -9999px;
-  margin: 0 auto;
 }
 nav ul{
   list-style-type: none;

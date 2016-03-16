@@ -1,10 +1,13 @@
-<h1>Yo!</h1>
-<h2>This is the history page</h2>
 <nav>
   <ul>
     <li><a href="/" title="link to home page">Homepage</a></li>
     <li><a href="/history" title="link to history page">History</a></li>
     <li><a href="/order" title="link to order page">Order</a></li>
     <li><a href="/contact" title="link to contact page">Contact</a></li>
+    <div id="logoutButton" ng-controller="logoutController">
+      <li><a ng-click='logout()' class="btn btn-default">Logout</a></li>
+    </div>
   </ul>
 </nav>
+<h1>Yo!</h1>
+<h2>This is the history page</h2>

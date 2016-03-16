@@ -1,4 +1,4 @@
-angular.module('myApp').controller('loginController',
+myApp.controller('loginController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -28,7 +28,7 @@ angular.module('myApp').controller('loginController',
 
 }]);
 
-angular.module('myApp').controller('logoutController',
+myApp.controller('logoutController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 
@@ -44,22 +44,28 @@ angular.module('myApp').controller('logoutController',
 
 }]);
 
+/* development for order page, get user to fill out form and place an order they can see on their accout page*/
+myApp.controller('orderController', ['$scope', '$http', function ($scope, $http) {
 
-/* development for order page, get user to fill out form and place an order they can see on their accout page
-angular.module('myApp').controller('orderController',
-  ['$scope', '$location', 'AuthService',
-  function ($scope, $location, AuthService) {
+  $scope.orderForm = {};
+  $scope.orderForm.fullname = "Bob Burgers";
+  $scope.orderForm.phone = 666;
+  $scope.orderForm.address = "111 blvd";
+  $scope.orderForm.zip = 32707;
+  $scope.orderForm.amount = "4 Gallons";
+  $scope.orderForm.message = "Blahhhh"
 
-    $scope.order = function () {
+  $scope.creteOrder = function() {
+    //console.log("Form Data", $scope.orderForm);
+    $http.post('/api/order', $scope.orderForm).then( function(response){
+        console.log("DATA PRINTED", response);
+    });
+  }
 
-      // call order from service
+}]);
 
-    }
 
-  }])
-*/
-
-angular.module('myApp').controller('registerController',
+myApp.controller('registerController',
   ['$scope', '$location', 'AuthService',
   function ($scope, $location, AuthService) {
 

@@ -1,13 +1,18 @@
+<nav>
+  <ul>
+    <li><a href="/" title="link to home page">Homepage</a></li>
+    <li><a href="/history" title="link to history page">History</a></li>
+    <li><a href="/order" title="link to order page">Order</a></li>
+    <li><a href="/contact" title="link to contact page">Contact</a></li>
+    <div id="logoutButton" ng-controller="logoutController">
+      <li><a ng-click='logout()' class="btn btn-default">Logout</a></li>
+    </div>
+  </ul>
+</nav>
+<h1>yo</h1>
+
 <div class="col-md-4">
-  <h1>Login</h1>
-  <nav>
-    <ul>
-      <li><a href="/" title="link to home page">Homepage</a></li>
-      <li><a href="/history" title="link to history page">History</a></li>
-      <li><a href="/order" title="link to order page">Order</a></li>
-      <li><a href="/contact" title="link to contact page">Contact</a></li>
-    </ul>
-  </nav>
+  <h2>Login</h2>
   <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
   <form class="form" ng-submit="login()">
     <div class="form-group">
