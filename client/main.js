@@ -34,6 +34,11 @@ myApp.config(function ($routeProvider, $locationProvider) {
       controller: 'orderController',
       access: {restricted: true}
     })
+    // .when('/receipt', {
+    //   templateUrl: 'partials/receipt.html',
+    //   controller: 'receiptController',
+    //   access: {restricted: false}
+    // })
     .otherwise({
       redirectTo: '/'
     });

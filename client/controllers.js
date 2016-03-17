@@ -59,9 +59,8 @@ myApp.controller('orderController', ['$scope', '$http', function ($scope, $http)
     //console.log("Form Data", $scope.orderForm);
     $http.post('/api/order', $scope.orderForm).then( function(response){
         console.log("DATA PRINTED", response);
-    });
-  }
-
+    })
+  };
 }]);
 
 
