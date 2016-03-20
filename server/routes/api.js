@@ -68,9 +68,15 @@ router.get('/status', function(req, res) {
   });
 });
 
+router.get('/authin', function(req, res, next) {
+  var user = { _id: req.user._id, username: req.user.username }
+  res.json(user)
+})
+
+
 //Created order.create for order route. when submited store all inputs into local database
 router.post('/order', function(req, res, next) {
-  console.log("PUT DATA: ",req.user._id);
+  //console.log("POST DATA: ",req.user._id);
   // console.log("GET USER: ", req.user);
   var date = timestamp.makeTimestamp();
   var uuid = uuid_generator.generateUUID();
@@ -94,8 +100,18 @@ router.post('/order', function(req, res, next) {
 
   order.save(function(err) {
     if (err) { next(err)}
-    res.status(201).end()
+    res.status(201).json(uuid).end()
   })
+});
+
+router.get('/order/:uuid', function(req, res, next) {
+  console.log("=======- ORDER ID -===========: ", req.params.uuid);
+  var token = req.params.uuid;
+
+  // do a findOne by token
+  // then place that object in .json()
+
+  res.status(201).json(token).end()
 });
 
 
