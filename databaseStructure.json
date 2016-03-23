@@ -1,0 +1,24 @@
+users{
+  "_id" : "ObjectId("")",
+  "salt" : "",
+  "hash" : "",
+  "username" : "",
+  "__v" : 0
+}
+orders{
+"_id" : "ObjectId("")",
+"fullname" : "",
+"username" : "",
+"phone" : "",
+"address" : "",
+"zip" : "",
+"orderType" : "",
+"needby" : "",
+"amount" : "",
+"payment" : "",
+"maintenance" : "",
+"message" : "",
+"timestampCreated" : "",
+"uuid" : "",
+"__v" : 0
+}
