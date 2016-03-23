@@ -11,6 +11,7 @@ const timestamp = require('../timestamp.js');
 
 var order = new Object();
 
+// authenticate Register
 router.post('/register', function(req, res) {
   User.register(new User({ username: req.body.username }),
     req.body.password, function(err, account) {
@@ -27,6 +28,7 @@ router.post('/register', function(req, res) {
   });
 });
 
+// authenticate Login
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) {
@@ -50,6 +52,7 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+// Logout
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({
@@ -57,6 +60,7 @@ router.get('/logout', function(req, res) {
   });
 });
 
+// Status
 router.get('/status', function(req, res) {
   if (!req.isAuthenticated()) {
     return res.status(200).json({
@@ -76,8 +80,6 @@ router.get('/authin', function(req, res, next) {
 
 //Created order.create for order route. when submited store all inputs into local database
 router.post('/order', function(req, res, next) {
-  //console.log("POST DATA: ",req.user._id);
-  // console.log("GET USER: ", req.user);
   var date = timestamp.makeTimestamp();
   var uuid = uuid_generator.generateUUID();
 
@@ -104,15 +106,20 @@ router.post('/order', function(req, res, next) {
   })
 });
 
+//Append the uuid onto the url of the order placed
 router.get('/order/:uuid', function(req, res, next) {
-  console.log("=======- ORDER ID -===========: ", req.params.uuid);
   var token = req.params.uuid;
+//find the order in the db with thet matches uuid
+  Order.findOne({uuid: token},function (err, foundOrder) {
+    if (err) console.log('====== ERROR======= ', err)
+    res.json(foundOrder)
 
-  // do a findOne by token
-  // then place that object in .json()
+  });
 
-  res.status(201).json(token).end()
+  Order.find(function (err, findAllOrders) {
+    if (err) console.log('+++++++ ERROR ++++++', err)
+    res.json(findAllOrders)
+  });
 });
-
 
 module.exports = router;

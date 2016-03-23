@@ -10,7 +10,39 @@
   </ul>
 </nav>
 <h1>Yo!</h1>
-<h2>This is the receipt page</h2>
-<h3>Your Order has been recieved</h3>
-<p>Plan to recieve the driver on the need by date.</p>
- 
+<h2>Your receipt</h2>
+<h2>Your Order has been recieved.</h2>
+<h3>Plan to recieve the driver on the need by date.</h3>
+<br/>
+<h4>Fullname</h4>
+<p class="fullname">{{ orderData.fullname }}</p>
+<h4>Username</h4>
+<p class="username">{{ orderData.username }}</p>
+<h4>Phone</h4>
+<p class="phone">{{ orderData.phone }}</p>
+<h4>Address</h4>
+<p class="address">{{ orderData.address }}</p>
+<h4>Zip</h4>
+<p class="zip">{{ orderData.zip }}</p>
+<h4>Time Create</h4>
+<p class="timestampCreated">{{ orderData.timestampCreated }}</p>
+<h4>Needed by</h4>
+<p class="needby">{{ orderData.needby }}</p>
+<h4>Order Type</h4>
+<p class="orderType">{{ orderData.orderType }}</p>
+<h4>Amount</h4>
+<p class="amount">{{ orderData.amount }}</p>
+<h4>Payment Type</h4>
+<p class="payment">{{ orderData.payment}}</p>
+<h4>Maintenance</h4>
+<p class="maintenance">{{ orderData.maintenance }}</p>
+<h4>Meassage</h4>
+<p class="message">{{ orderData.message }}</p>
+<!-- <h4>UUID</h4>
+<p class="uuid">{{ orderData.uuid }}</p>
+<h4>ID</h4>
+<p class="_id">{{ orderData._id }}</p> -->
+
+<h3>Thank you for your order.</h3>
+<p>If you plan to pay now you will need to have your credit card ready for the driver upon delivery.</p>
+<p>If you need to pay later please use this phone number to call our offices (802-325-2958)</p>
