@@ -1,9 +1,10 @@
 /* development for order page, get user to fill out form and place an order they can see on their accout page*/
-myApp.controller('orderController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+myApp.controller('orderController', ['$scope', '$http', '$location', 'socket',
+                  function ($scope, $http, $location, socket) {
 
   // Auto fill the inputs because I am lazy and don't want to do it every time.
   $scope.orderForm = {};
-  // Dev auto fill to make testing quicker
+  // auto fill form fields to make testing quicker
   // $scope.orderForm.fullname = "Bob Burgers";
   // $scope.orderForm.phone = 666;
   // $scope.orderForm.address = "111 blvd";
@@ -12,10 +13,19 @@ myApp.controller('orderController', ['$scope', '$http', '$location', function ($
   // $scope.orderForm.message = "Blahhhh"
 
   $scope.creteOrder = function() {
-    $http.post('/api/order', $scope.orderForm).then( function(response){
-        console.log("DATA PRINTED", response.data);
-        var uuid = response.data;
-        $location.path('/receipt/'+uuid);
-    })
+
+    socket.emit('new_order', $scope.orderForm);
+
+    // $http.post('/api/order', $scope.orderForm).then( function(response){
+    //     console.log("DATA PRINTED", response.data);
+    //     var uuid = response.data;
+    //     $location.path('/receipt/'+uuid);
+    // })
   };
+
+  socket.on('add_order', function(order) {
+    console.log("JUST ADDED: ", order)
+    var uuid = order.uuid;
+    $location.path('/receipt/'+uuid);
+  })
 }]);

@@ -116,11 +116,6 @@ router.get('/order/:uuid', function(req, res, next) {
     res.json(foundOrder)
 
   });
-
-  // Order.find(function (err, findAllOrders) {
-  //   if (err) console.log('+++++++ ERROR ++++++', err)
-  //   res.json(findAllOrders)
-  // });
 });
 
 

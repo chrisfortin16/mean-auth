@@ -1,12 +1,7 @@
 myApp.controller('loginController',
-  ['$scope', '$location', 'AuthService', 'socket',
-  function ($scope, $location, AuthService, socket) {
-    console.log("socket", socket);
-
-    socket.emit('new_order', 'Hello!')
-    socket.on('add_order', function(order) {
-      console.log(order)
-    })
+  ['$scope', '$location', 'AuthService',
+  function ($scope, $location, AuthService) {
+    
     $scope.login = function () {
 
       // initial values
@@ -30,7 +25,5 @@ myApp.controller('loginController',
           $scope.loginForm = {};
         });
     };
-
-
 
 }]);

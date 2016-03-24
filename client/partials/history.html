@@ -11,3 +11,9 @@
 </nav>
 <h1>Yo!</h1>
 <h2>This is the history page</h2>
+
+<div class="row">
+  <div class="col-md-4" ng-repeat="order in orders track by $index">
+    <pre>{{order.uuid}}</pre>
+  </div>
+</div>

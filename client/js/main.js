@@ -23,6 +23,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
     })
     .when('/history', {
       templateUrl: 'partials/history.html',
+      controller: 'historyController',
       access: {restricted: false}
     })
     .when('/contact', {
