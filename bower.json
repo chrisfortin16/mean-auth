@@ -1,0 +1,22 @@
+{
+  "name": "mean-auth",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Chris Fortin <cjfortin@fullsail.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chrisfortin16/mean-auth",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-route": "^1.5.2"
+  }
+}
