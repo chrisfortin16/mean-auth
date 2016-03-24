@@ -1,6 +1,12 @@
 myApp.controller('loginController',
-  ['$scope', '$location', 'AuthService',
-  function ($scope, $location, AuthService) {
+  ['$scope', '$location', 'AuthService', 'socket',
+  function ($scope, $location, AuthService, socket) {
+    console.log("socket", socket);
+
+    socket.emit('new_order', 'Hello!')
+    socket.on('add_order', function(order) {
+      console.log(order)
+    })
     $scope.login = function () {
 
       // initial values
@@ -9,7 +15,7 @@ myApp.controller('loginController',
 
       // call login from service
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
-      
+
         // handle success
         .then(function () {
           $location.path('/');

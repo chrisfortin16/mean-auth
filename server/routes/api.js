@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var io = require('socket.io');
 
 var User = require('../models/user.js');
 var Order = require('../models/order.js');
@@ -111,15 +112,18 @@ router.get('/order/:uuid', function(req, res, next) {
   var token = req.params.uuid;
 //find the order in the db with thet matches uuid
   Order.findOne({uuid: token},function (err, foundOrder) {
-    if (err) console.log('====== ERROR======= ', err)
+    if (err) console.log('====== ERROR=======', err)
     res.json(foundOrder)
 
   });
 
-  Order.find(function (err, findAllOrders) {
-    if (err) console.log('+++++++ ERROR ++++++', err)
-    res.json(findAllOrders)
-  });
+  // Order.find(function (err, findAllOrders) {
+  //   if (err) console.log('+++++++ ERROR ++++++', err)
+  //   res.json(findAllOrders)
+  // });
 });
+
+
+
 
 module.exports = router;

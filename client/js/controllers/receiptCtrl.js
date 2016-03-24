@@ -1,8 +1,8 @@
 myApp.controller('receiptController',
-  ['$scope', '$location', 'AuthService', '$routeParams', '$http',
-  function ($scope, $location, AuthService, $routeParams, $http) {
+  ['$scope', '$location', 'AuthService', '$routeParams', '$http', 'socket',
+  function ($scope, $location, AuthService, $routeParams, $http, socket) {
     $scope.info = $routeParams.uuid;
-    //console.log("Route UUID ", $routeParams.uuid);
+    console.log("===CONNECTION ", socket);
 
     $http.get('/api/order/' + $scope.info)
     .success(function (data) {
