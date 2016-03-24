@@ -18,6 +18,7 @@
     "socket.io": "^1.4.5"
   },
   "devDependencies": {
+    "bower": "^1.7.7",
     "grunt-nodemon": "^0.4.1",
     "nodemon": "^1.9.1"
   }
